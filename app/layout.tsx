@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { StickyHeader } from "@/components/shared/StickyHeader";
+import { Footer } from "@/components/shared/Footer";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-inter", display: "swap" });
@@ -12,7 +14,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="cs" className={inter.variable}>
-      <body className="bg-cream text-ink font-sans antialiased">{children}</body>
+      <body className="bg-cream text-ink font-sans antialiased min-h-screen flex flex-col">
+        <StickyHeader />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
