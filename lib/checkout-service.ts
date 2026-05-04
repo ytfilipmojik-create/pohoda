@@ -90,3 +90,49 @@ export async function updateCheckout(input: CheckoutUpdate): Promise<UpdateCheck
     totalKc: cart.totalKc,
   };
 }
+
+export type PaidOrder = {
+  id: string;
+  email: string;
+  name: string | null;
+  product_slugs: string[];
+  has_bonus: boolean;
+  amount_total_kc: number;
+};
+
+export async function markOrderPaid(paymentIntentId: string): Promise<PaidOrder | null> {
+  const { data, error } = await supabaseAdmin
+    .from("orders")
+    .update({ status: "paid", paid_at: new Date().toISOString() })
+    .eq("stripe_payment_intent_id", paymentIntentId)
+    .eq("status", "pending")
+    .select()
+    .single();
+
+  if (error) {
+    if (error.code === "PGRST116") return null;
+    throw new Error(`markOrderPaid failed: ${error.message}`);
+  }
+  return data as PaidOrder;
+}
+
+export async function markOrderRefunded(paymentIntentId: string): Promise<void> {
+  const { data: order, error: lookupErr } = await supabaseAdmin
+    .from("orders")
+    .select("id")
+    .eq("stripe_payment_intent_id", paymentIntentId)
+    .single();
+
+  if (lookupErr) throw new Error(`markOrderRefunded lookup failed: ${lookupErr.message}`);
+
+  const { error } = await supabaseAdmin
+    .from("orders")
+    .update({ status: "refunded" })
+    .eq("stripe_payment_intent_id", paymentIntentId);
+  if (error) throw new Error(`markOrderRefunded update failed: ${error.message}`);
+
+  await supabaseAdmin.from("refunds").insert({
+    order_id: order.id,
+    reason: "stripe_refund_webhook",
+  });
+}
