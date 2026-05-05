@@ -125,6 +125,19 @@ export async function sendUpsellEmail(order: {
   await logSent(order.id, "upsell", result.data?.id ?? null);
 }
 
+export async function sendRefundAdminEmail(params: {
+  paymentIntentId: string;
+  amountKc: number;
+  currency: string;
+}): Promise<void> {
+  await getResend().emails.send({
+    from: FROM(),
+    to: "filip@pohodazdomova.cz",
+    subject: `[admin] Refund: ${params.paymentIntentId}`,
+    text: `Refund applied.\n\nPaymentIntent: ${params.paymentIntentId}\nAmount: ${params.amountKc} ${params.currency}\n`,
+  });
+}
+
 export async function sendReviewRequestEmail(order: {
   id: string;
   email: string;

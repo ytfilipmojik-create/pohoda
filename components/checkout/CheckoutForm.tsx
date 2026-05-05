@@ -38,6 +38,15 @@ export function CheckoutForm({ initialProduct }: Props) {
 
   useEffect(() => {
     if (!canPay || clientSecret) return;
+    const metadata: Record<string, string> = {};
+    const fbc = readCookie("_fbc");
+    const fbp = readCookie("_fbp");
+    if (fbc) metadata.fbc = fbc;
+    if (fbp) metadata.fbp = fbp;
+    if (typeof window !== "undefined" && window.location.search) {
+      metadata.utm = window.location.search;
+    }
+
     fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,6 +56,7 @@ export function CheckoutForm({ initialProduct }: Props) {
         name: name || undefined,
         consentImmediateFulfillment: consentImmediate,
         consentTerms,
+        metadata: Object.keys(metadata).length > 0 ? metadata : undefined,
       }),
     })
       .then((r) => r.json())
@@ -159,6 +169,14 @@ export function CheckoutForm({ initialProduct }: Props) {
       </div>
     </div>
   );
+}
+
+function readCookie(name: string): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  return document.cookie
+    .split("; ")
+    .find((c) => c.startsWith(`${name}=`))
+    ?.split("=")[1];
 }
 
 function InnerPay({ paymentIntentId, totalKc }: { paymentIntentId: string; totalKc: number }) {

@@ -98,6 +98,7 @@ export type PaidOrder = {
   product_slugs: string[];
   has_bonus: boolean;
   amount_total_kc: number;
+  metadata: Record<string, string> | null;
 };
 
 export async function markOrderPaid(paymentIntentId: string): Promise<PaidOrder | null> {

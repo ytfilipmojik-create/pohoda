@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
 import { markOrderPaid, markOrderRefunded } from "@/lib/checkout-service";
-import { sendDownloadEmail } from "@/lib/resend";
+import { sendDownloadEmail, sendRefundAdminEmail } from "@/lib/resend";
 import { sendMetaConversion } from "@/lib/meta-conversions";
 
 export const runtime = "nodejs";
@@ -30,11 +30,16 @@ export async function POST(req: Request) {
       const order = await markOrderPaid(intent.id);
       if (order) {
         await sendDownloadEmail(order);
+        const meta = order.metadata ?? {};
         await sendMetaConversion("Purchase", {
           value: order.amount_total_kc,
           currency: "CZK",
           email: order.email,
           orderId: order.id,
+          fbc: meta.fbc || undefined,
+          fbp: meta.fbp || undefined,
+          ipAddress: meta.ip || undefined,
+          userAgent: meta.ua || undefined,
         });
       }
     } else if (event.type === "charge.refunded") {
@@ -43,7 +48,14 @@ export async function POST(req: Request) {
         typeof charge.payment_intent === "string"
           ? charge.payment_intent
           : charge.payment_intent?.id;
-      if (intentId) await markOrderRefunded(intentId);
+      if (intentId) {
+        await markOrderRefunded(intentId);
+        await sendRefundAdminEmail({
+          paymentIntentId: intentId,
+          amountKc: Math.round((charge.amount_refunded ?? 0) / 100),
+          currency: charge.currency.toUpperCase(),
+        });
+      }
     } else if (event.type === "payment_intent.payment_failed") {
       console.warn("payment_failed:", event.data.object);
     }

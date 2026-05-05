@@ -15,8 +15,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    req.headers.get("x-real-ip") ??
+    undefined;
+  const ua = req.headers.get("user-agent") ?? undefined;
+
+  const enrichedInput = {
+    ...parsed.data,
+    metadata: {
+      ...(parsed.data.metadata ?? {}),
+      ...(ip ? { ip } : {}),
+      ...(ua ? { ua } : {}),
+    },
+  };
+
   try {
-    const result = await createCheckout(parsed.data);
+    const result = await createCheckout(enrichedInput);
     return NextResponse.json(result);
   } catch (e) {
     console.error("createCheckout error:", e);
