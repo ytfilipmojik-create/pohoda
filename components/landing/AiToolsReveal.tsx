@@ -56,7 +56,7 @@ export function AiToolsReveal() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-12">
           <div className="text-xs uppercase tracking-[0.2em] text-gold font-extrabold mb-4">
-            04 — Bonus zdarma
+            05 — Bonus zdarma
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight mb-4">
             AI nástroje, které denně používám.

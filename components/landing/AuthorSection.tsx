@@ -10,7 +10,7 @@ export function AuthorSection() {
         </div>
         <div>
           <div className="text-xs uppercase tracking-[0.2em] text-gold font-extrabold mb-4">
-            03 — Kdo to píše?
+            04 — Kdo to píše?
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-navy leading-tight mb-5">
             Filip. Před rokem na stavbě, dnes z toho žije.

@@ -5,7 +5,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pohodazdomova.cz";
 const STATIC_PATHS = [
   "",
   "/pribeh",
-  "/kontakt",
+  "/sdilet-pribeh",
   "/bundle",
   "/ai-ugc-reklamy",
   "/ai-grafika",

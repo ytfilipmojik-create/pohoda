@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white/70 mt-0">
+    <footer className="bg-navy text-white/70">
       <div className="mx-auto max-w-6xl px-6 py-16 grid gap-10 md:grid-cols-3">
         <div>
           <div className="font-extrabold text-white text-lg mb-2">
@@ -17,13 +17,19 @@ export function Footer() {
             Web
           </div>
           <div className="flex flex-col gap-2 text-sm">
-            <Link href="/" className="hover:text-white transition">
-              Hlavní stránka
+            <Link href="/#co-dostanes" className="hover:text-white transition">
+              E-booky
+            </Link>
+            <Link href="/#pribehy" className="hover:text-white transition">
+              Příběhy čtenářů
             </Link>
             <Link href="/pribeh" className="hover:text-white transition">
-              Příběh
+              Můj příběh
             </Link>
-            <Link href="/kontakt" className="hover:text-white transition">
+            <Link href="/sdilet-pribeh" className="hover:text-white transition">
+              Sdílet příběh
+            </Link>
+            <Link href="/#kontakt" className="hover:text-white transition">
               Kontakt
             </Link>
           </div>

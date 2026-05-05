@@ -43,7 +43,7 @@ export function WhatYouGet() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.2em] text-gold font-extrabold mb-4">
-            01 — Co dostaneš
+            02 — Co dostaneš
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
             Tři e-booky, každý jedna konkrétní cesta.

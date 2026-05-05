@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Stars } from "@/components/svg/Stars";
 
 const REVIEWS = [
@@ -116,9 +117,17 @@ export function Reviews() {
         </div>
       </div>
 
-      <p className="mt-10 text-center text-xs text-ink/40">
-        Recenze z beta čtení. Po launchi se sem doplní reálné nákupy.
-      </p>
+      <div className="mt-12 flex flex-col items-center gap-3">
+        <Link
+          href="/sdilet-pribeh"
+          className="inline-flex items-center gap-2 text-navy font-semibold border-b-2 border-gold pb-1 hover:gap-3 transition-all"
+        >
+          Sdílet svůj příběh nebo recenzi <span className="text-gold">→</span>
+        </Link>
+        <p className="text-xs text-ink/40">
+          Jsi spokojený s produktem? Poděl se — pomáhá nám i ostatním čtenářům.
+        </p>
+      </div>
     </section>
   );
 }

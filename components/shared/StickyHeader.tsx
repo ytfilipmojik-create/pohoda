@@ -8,20 +8,20 @@ export function StickyHeader() {
         <Logo className="text-xl" />
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           <Link href="/#co-dostanes" className="text-ink/70 hover:text-navy transition">
-            Co dostaneš
+            E-booky
           </Link>
-          <Link href="/pribeh" className="text-ink/70 hover:text-navy transition">
-            Příběh
+          <Link href="/#pribehy" className="text-ink/70 hover:text-navy transition">
+            Příběhy
           </Link>
-          <Link href="/kontakt" className="text-ink/70 hover:text-navy transition">
+          <Link href="/#kontakt" className="text-ink/70 hover:text-navy transition">
             Kontakt
           </Link>
         </nav>
         <Link
-          href="/checkout?product=bundle"
+          href="/#co-dostanes"
           className="rounded-xl bg-navy text-white px-4 py-2 text-sm font-semibold hover:bg-navy/90 transition shadow-sm"
         >
-          Vzít balíček · 999 Kč
+          Začít
         </Link>
       </div>
     </header>
