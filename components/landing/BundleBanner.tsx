@@ -54,7 +54,7 @@ export function BundleBanner() {
                   <span className="text-gold">✓</span> AI weby
                 </li>
                 <li className="flex gap-2 text-gold font-semibold">
-                  <span>★</span> BONUS klienti
+                  <span>★</span> BONUS — Jak sehnat klienta
                 </li>
               </ul>
             </div>
