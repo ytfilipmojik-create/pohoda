@@ -43,7 +43,7 @@ export function WhatYouGet() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.2em] text-gold font-extrabold mb-4">
-            02 — Co dostaneš
+            01 — Co dostaneš
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
             Tři e-booky, každý jedna konkrétní cesta.
@@ -61,7 +61,7 @@ export function WhatYouGet() {
                 <EbookMockup number={p.number} title={p.title} rotate={0} />
               </div>
               <div className="text-xs uppercase tracking-wider text-gold font-bold mb-2">
-                {p.number} · průvodce
+                {p.number} · průvodce · 399 Kč
               </div>
               <h3 className="text-xl font-extrabold text-navy mb-2">{p.title}</h3>
               <p className="text-ink/70 text-sm leading-relaxed mb-4">{p.pitch}</p>
@@ -78,6 +78,13 @@ export function WhatYouGet() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-14 max-w-2xl mx-auto text-center text-sm text-ink/60">
+          Pokud chceš všechny tři, je tu i balíček za{" "}
+          <span className="font-semibold text-navy">999 Kč</span> (jednotlivě by vyšly na 1 197
+          Kč) a obsahuje navíc bonusový e-book{" "}
+          <em className="text-navy">„Jak sehnat prvního klienta"</em>.
         </div>
       </div>
     </section>

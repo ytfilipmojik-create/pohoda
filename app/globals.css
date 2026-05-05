@@ -11,3 +11,19 @@
   --shadow-upsell: 0 8px 24px rgba(26,31,58,0.25);
   --radius-card: 12px;
 }
+
+@keyframes reviewsScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.reviews-marquee {
+  animation: reviewsScroll 80s linear infinite;
+}
+
+@keyframes savingsPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+.savings-pulse {
+  animation: savingsPulse 2.4s ease-in-out infinite;
+}
