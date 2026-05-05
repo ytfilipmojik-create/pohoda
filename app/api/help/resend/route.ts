@@ -12,17 +12,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
 
-  const since = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
-  const { count } = await supabaseAdmin
-    .from("email_log")
-    .select("*", { count: "exact", head: true })
-    .eq("email_type", "download")
-    .gte("sent_at", since);
-
-  if ((count ?? 0) > 50) {
-    return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
-  }
-
   const { data: orders } = await supabaseAdmin
     .from("orders")
     .select("*")
@@ -35,6 +24,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  await sendDownloadEmail(orders[0]);
+  await sendDownloadEmail(orders[0], { allowDuplicate: true });
   return NextResponse.json({ ok: true });
 }

@@ -40,8 +40,11 @@ async function logSent(orderId: string, type: string, messageId: string | null) 
   });
 }
 
-export async function sendDownloadEmail(order: PaidOrder): Promise<void> {
-  if (await alreadySent(order.id, "download")) return;
+export async function sendDownloadEmail(
+  order: PaidOrder,
+  options: { allowDuplicate?: boolean } = {},
+): Promise<void> {
+  if (!options.allowDuplicate && (await alreadySent(order.id, "download"))) return;
 
   const fulfillSlugs = expandToFulfillment(order.product_slugs as ProductSlug[]);
   const downloads = await Promise.all(
