@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 import { PersonPlaceholder } from "@/components/svg/PersonPlaceholder";
 
 const FEATURED = {
@@ -6,13 +8,15 @@ const FEATURED = {
   age: 34,
   role: "Tesař + freelance webař",
   product: "AI weby pro malé firmy",
-  paragraphs: [
-    "Dělám tesaře. Klasická manuální dřina — pět dní v týdnu na stavbě, ráno brzy nahoru, odpoledne domů.",
-    "Před rokem jsem chtěl pustit si vlastní stránky pro tesařství, abych chytal víc zakázek od soukromníků. Obvolal jsem pár webdesignérů — buď nezvedali, nebo chtěli 30, 40 tisíc. Tolik peněz za něco, čemu nerozumím, jsem dát nechtěl.",
-    "Pak mi kolega ukázal e-book AI weby pro malé firmy. Stálo to 399 Kč. Říkal jsem si: za jednu výplatu si zkusím něco udělat sám. A vyšlo to. Za dva víkendy jsem měl funkční web přesně podle své představy. Žádný designér mi nemusel říkat, co se kde má hodit, protože já vím, jak svoji práci prodat.",
-    "Tady to začalo zajímavě. Na stavbách potkávám denně chlapy z různých řemesel — střechaře, zedníky, elektrikáře, instalatéry. Většina z nich nemá web, nebo má něco z roku 2015. Zeptal jsem se jednoho: „Hele, kdybych ti udělal stránky podle tvojí branže, vzal bys to?\" Vzal. Pak druhý. Třetí.",
-    "Dneska po práci sednu k notebooku a tahám zakázky. „Tesař od stavby\" funguje líp než kdybych byl jen další freelance designér z LinkedInu — chlapi vědí, že rozumím, o čem mluvíme. Cenu dělám férovou, ne jako agentury.",
-    "Plus z toho mám druhý zdroj příjmu, který za měsíc dělá víc než zedníčina mimo sezónu. A pořád chodím na stavbu, protože mě to baví. Pohoda.",
+  preview: [
+    "Jsem tesař. Pět dní v týdnu na stavbě, ráno brzy nahoru, odpoledne domů. Pracuju rukama a baví mě to.",
+    "Před rokem jsem chtěl mít vlastní web pro tesařství — zachytit víc soukromníků, kteří hledají řemeslníka přes Google. Obvolal jsem několik webdesignérů, ale ceny se pohybovaly mezi 30 a 40 tisíci. Tolik peněz za něco, čemu nerozumím, jsem investovat nechtěl.",
+  ],
+  rest: [
+    "Kolega mi pak ukázal e-book AI weby pro malé firmy. Stál 399 Kč. Říkal jsem si, že za jednu výplatu zkusím něco postavit sám. Vyšlo to — za dva víkendy jsem měl funkční web přesně podle své představy.",
+    "Tady to začalo být zajímavé. Na stavbách denně potkávám další řemeslníky — střechaře, zedníky, elektrikáře, instalatéry. Většina z nich nemá web vůbec, nebo má něco z roku 2015. Zeptal jsem se jednoho: „Kdybych ti udělal stránky podle tvojí branže, vzal bys to?\" Vzal. Pak druhý. Třetí.",
+    "Dneska po práci sednu k notebooku a pracuju na zakázkách. „Tesař, který staví weby\" funguje líp, než kdybych byl jen další freelance designér z LinkedInu — kolegové vědí, že rozumím jejich byznysu. Ceny dělám férové, nepřeháním je jako agentury.",
+    "Mám druhý zdroj příjmu, který v některých měsících přesahuje výplatu z hlavní práce. A pořád chodím na stavbu, protože mě to baví. Pohoda.",
   ],
 };
 
@@ -22,18 +26,20 @@ const SHORT_STORIES = [
     age: 32,
     role: "Mateřská + UGC kreativy",
     product: "AI UGC reklamy",
-    text: "Po mateřské jsem hledala něco při dětech. Cold call ne, klasický marketing taky ne. Vzala jsem si AI UGC reklamy a za měsíc jsem měla portfolio pěti video kreativ. Dnes mám čtyři značky, kterým točím obsah — kosmetika a doplňky. Telefon a kruhové světlo za 800 Kč mi stačí.",
+    text: "Po mateřské jsem hledala přivýdělek, který bych mohla zvládnout při dětech. Cold call mi nesedí, klasický marketing taky ne. Vzala jsem si e-book AI UGC reklamy a za měsíc jsem měla portfolio pěti videí. Dnes natáčím obsah pro čtyři značky — převážně kosmetiku a doplňky stravy. Stačí mi telefon a kruhové světlo za 800 Kč.",
   },
   {
     name: "Tomáš P.",
     age: 29,
     role: "IT support + grafika po večerech",
     product: "AI grafika a vizuály",
-    text: "Pracuju v IT supportu, dvanáctky. V lichém týdnu si přivydělávám grafikou pro lokální e-shopy a kavárny. Místo prokrastinace na YouTube dělám vizuály a peníze přijdou. Cenotvorba v e-booku byla pro mě klíčová — sám bych se podcenil.",
+    text: "Pracuju v IT supportu na dvanáctihodinové směny. V lichém týdnu si přivydělávám tvorbou grafiky pro lokální e-shopy a kavárny. Místo prokrastinace na YouTube tvořím vizuály — a navíc z toho mám peníze. Cenotvorba popsaná v e-booku byla pro mě klíčová, sám bych se totiž podcenil.",
   },
 ];
 
 export function CustomerStories() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <section id="pribehy" className="bg-white py-24">
       <div className="mx-auto max-w-6xl px-6">
@@ -42,10 +48,10 @@ export function CustomerStories() {
             03 — Příběhy čtenářů
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
-            Lidi, co z toho udělali něco svého.
+            Lidé, kteří z toho udělali něco svého.
           </h2>
           <p className="mt-5 text-lg text-ink/70 leading-relaxed">
-            Žádné motivační videa, žádné garantované „milion za měsíc". Jen lidi, co po práci
+            Žádné motivační videa, žádné garantované „milion za měsíc". Jen lidé, kteří po práci
             sedli k notebooku a krok po kroku si postavili druhou nohu.
           </p>
         </div>
@@ -60,16 +66,37 @@ export function CustomerStories() {
                 Featured · {FEATURED.product}
               </div>
               <h3 className="text-3xl md:text-4xl font-extrabold text-navy leading-tight mb-2">
-                Tesař, co rozjel weby pro celou stavbu.
+                Tesař, který rozjel weby pro celou stavbu.
               </h3>
               <div className="text-sm text-ink/60 mb-6">
                 {FEATURED.name}, {FEATURED.age} · {FEATURED.role}
               </div>
               <div className="space-y-4 text-ink/85 leading-relaxed text-[17px]">
-                {FEATURED.paragraphs.map((p, i) => (
+                {FEATURED.preview.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
+                {expanded &&
+                  FEATURED.rest.map((p, i) => (
+                    <p key={i} className="animate-[fadeIn_300ms_ease]">
+                      {p}
+                    </p>
+                  ))}
               </div>
+              <button
+                type="button"
+                onClick={() => setExpanded(!expanded)}
+                className="mt-6 inline-flex items-center gap-2 text-navy font-semibold border-b-2 border-gold pb-1 hover:gap-3 transition-all"
+              >
+                {expanded ? (
+                  <>
+                    Sbalit <span className="text-gold">↑</span>
+                  </>
+                ) : (
+                  <>
+                    Číst celý Markův příběh <span className="text-gold">↓</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </article>
@@ -111,8 +138,8 @@ export function CustomerStories() {
                 Tvůj příběh tu může být další.
               </h3>
               <p className="text-white/75 text-[15px] leading-relaxed max-w-xl">
-                Pokud tě e-book někam posunul, podělej se. Pomáhá to ostatním překonat „není to
-                pro mě" moment.
+                Pokud tě e-book někam posunul, podělej se. Pomůže to dalším lidem překonat „není
+                to pro mě" moment.
               </p>
             </div>
             <Link

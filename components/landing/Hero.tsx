@@ -20,17 +20,47 @@ export function Hero() {
             <br />
             <span className="text-ink/40">S AI.</span>
           </h1>
-          <p className="mt-7 text-lg md:text-xl text-ink/70 leading-relaxed max-w-xl">
+          <p className="mt-7 text-lg md:text-xl text-ink/75 leading-relaxed max-w-xl">
             Tři praktické e-booky pro lidi v zaměstnání, kteří se chtějí naučit AI a klidně po
-            večerech rozjet něco svého. Bez kurzů za desítky tisíc, bez hype, bez tlaku.
+            večerech rozjet něco svého.
           </p>
 
-          <div className="mt-9">
+          <ul className="mt-6 space-y-2 text-[15px] text-ink/70 max-w-xl">
+            <li className="flex gap-3">
+              <span className="text-gold font-bold mt-0.5">01</span>
+              <span>
+                <strong className="text-navy">AI UGC reklamy</strong> — jak točit krátká reklamní
+                videa pro značky a inkasovat za kus.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-gold font-bold mt-0.5">02</span>
+              <span>
+                <strong className="text-navy">AI grafika a vizuály</strong> — logo, sociální
+                sítě, bannery bez Photoshopu, jen s AI a Canvou.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-gold font-bold mt-0.5">03</span>
+              <span>
+                <strong className="text-navy">AI weby pro malé firmy</strong> — postavit za večer
+                profesionální web pro lokální firmu.
+              </span>
+            </li>
+          </ul>
+
+          <div className="mt-9 flex flex-col sm:flex-row gap-3">
+            <Link
+              href="#balicek"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-navy text-white px-6 py-3.5 font-semibold hover:bg-navy/90 transition shadow-[0_10px_30px_rgba(26,31,58,0.2)]"
+            >
+              Chci výhodný balíček <span className="text-gold">→</span>
+            </Link>
             <Link
               href="#co-dostanes"
-              className="inline-flex items-center gap-2 text-navy font-semibold border-b-2 border-gold pb-1 hover:gap-3 transition-all text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-ink/15 bg-white px-6 py-3.5 font-semibold text-navy hover:bg-cream transition"
             >
-              Mrkni, co je uvnitř <span className="text-gold">↓</span>
+              Co je uvnitř
             </Link>
           </div>
         </div>

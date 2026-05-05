@@ -2,6 +2,7 @@ import { Hero } from "@/components/landing/Hero";
 import { Reviews } from "@/components/landing/Reviews";
 import { ProblemSection } from "@/components/landing/ProblemSection";
 import { WhatYouGet } from "@/components/landing/WhatYouGet";
+import { BundleBanner } from "@/components/landing/BundleBanner";
 import { CustomerStories } from "@/components/landing/CustomerStories";
 import { AuthorSection } from "@/components/landing/AuthorSection";
 import { AiToolsReveal } from "@/components/landing/AiToolsReveal";
@@ -16,6 +17,7 @@ export default function Home() {
       <Reviews />
       <ProblemSection />
       <WhatYouGet />
+      <BundleBanner />
       <CustomerStories />
       <AuthorSection />
       <AiToolsReveal />

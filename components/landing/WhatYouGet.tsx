@@ -7,33 +7,18 @@ const PRODUCTS = [
     number: "01",
     title: "AI UGC reklamy",
     pitch: "Točit krátká reklamní videa pro značky a inkasovat za kus.",
-    bullets: [
-      "Hooky, scripty, CTA pro UGC",
-      "Najít první značky, které platí",
-      "Optimalizace podle Meta Ads dat",
-    ],
   },
   {
     slug: "ai-grafika",
     number: "02",
     title: "AI grafika a vizuály",
-    pitch: "Logo, sociální sítě, bannery — vše bez Photoshopu, jen s AI a Canvou.",
-    bullets: [
-      "MidJourney workflow + Canva šablony",
-      "Cenotvorba pro malé firmy",
-      "Šablony promptů, které šetří hodiny",
-    ],
+    pitch: "Logo, sociální sítě, bannery — bez Photoshopu, jen s AI a Canvou.",
   },
   {
     slug: "ai-weby",
     number: "03",
     title: "AI weby pro malé firmy",
-    pitch: "Postavit za večer profi web pro lokální firmu. Vyšší marže než UGC.",
-    bullets: [
-      "Brief → AI návrh → Framer/Webflow",
-      "Cenotvorba — proč nesoutěžit s low-cost",
-      "Údržba a upsell pro stálý cash flow",
-    ],
+    pitch: "Postavit za večer profesionální web pro lokální firmu.",
   },
 ];
 
@@ -43,48 +28,50 @@ export function WhatYouGet() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-2xl mb-14">
           <div className="text-xs uppercase tracking-[0.2em] text-gold font-extrabold mb-4">
-            02 — Co dostaneš
+            02 — Vyber e-book
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
             Tři e-booky, každý jedna konkrétní cesta.
           </h2>
           <p className="mt-5 text-lg text-ink/70 leading-relaxed">
-            Krátké, praktické, přímo k věci. Žádná voda, žádné motivační kapitoly. Cca 30 stran
-            na e-book.
+            Krátké, praktické, přímo k věci. Žádná voda, žádné motivační kapitoly.{" "}
+            <span className="font-semibold text-navy">Cca 30 stran</span> na e-book, doručení
+            e-mailem do několika minut.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {PRODUCTS.map((p) => (
-            <Link key={p.slug} href={`/${p.slug}`} className="group">
-              <div className="aspect-[3/4] mb-6 px-4 group-hover:-translate-y-1 transition-transform">
+            <article
+              key={p.slug}
+              className="bg-cream rounded-2xl p-6 border border-ink/5 flex flex-col hover:shadow-[0_20px_50px_rgba(26,31,58,0.1)] transition-shadow"
+            >
+              <div className="aspect-[3/4] mb-6 px-2">
                 <EbookMockup number={p.number} title={p.title} rotate={0} />
               </div>
-              <div className="text-xs uppercase tracking-wider text-gold font-bold mb-2">
-                {p.number} · průvodce · 399 Kč
+              <div className="text-xs uppercase tracking-wider text-gold font-extrabold mb-2">
+                {p.number} · průvodce
               </div>
-              <h3 className="text-xl font-extrabold text-navy mb-2">{p.title}</h3>
-              <p className="text-ink/70 text-sm leading-relaxed mb-4">{p.pitch}</p>
-              <ul className="space-y-1.5 text-sm text-ink/70">
-                {p.bullets.map((b) => (
-                  <li key={b} className="flex gap-2">
-                    <span className="text-gold font-bold">—</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy group-hover:gap-3 transition-all">
-                Podrobnosti <span className="text-gold">→</span>
+              <h3 className="text-xl font-extrabold text-navy mb-2 leading-tight">{p.title}</h3>
+              <p className="text-ink/70 text-sm leading-relaxed mb-4 flex-1">{p.pitch}</p>
+              <div className="flex items-baseline gap-2 mb-4">
+                <span className="text-3xl font-extrabold text-navy">399 Kč</span>
+                <span className="text-xs text-ink/50">/ PDF</span>
               </div>
-            </Link>
+              <Link
+                href={`/checkout?product=${p.slug}`}
+                className="block text-center rounded-xl bg-navy text-white py-3.5 font-bold hover:bg-navy/90 transition shadow-sm"
+              >
+                Koupit za 399 Kč
+              </Link>
+              <Link
+                href={`/${p.slug}`}
+                className="mt-3 text-center text-sm text-ink/60 hover:text-navy transition"
+              >
+                Co se naučíš →
+              </Link>
+            </article>
           ))}
-        </div>
-
-        <div className="mt-14 max-w-2xl mx-auto text-center text-sm text-ink/60">
-          Pokud chceš všechny tři, je tu i balíček za{" "}
-          <span className="font-semibold text-navy">999 Kč</span> (jednotlivě by vyšly na 1 197
-          Kč) a obsahuje navíc bonusový e-book{" "}
-          <em className="text-navy">„Jak sehnat prvního klienta"</em>.
         </div>
       </div>
     </section>
