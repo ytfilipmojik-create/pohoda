@@ -43,8 +43,8 @@ export function OrderBumpBar({ isBundle, onToggle, loading }: Props) {
             <div className="text-[10px] uppercase tracking-wider text-white/50 font-bold mb-1">
               Cena samostatně
             </div>
-            <div className="text-xl font-bold text-white/50 line-through">1 197 Kč</div>
-            <div className="text-[11px] text-white/40 mt-1">3 × 399 Kč, bez bonusu</div>
+            <div className="text-xl font-bold text-white/50 line-through">1 397 Kč</div>
+            <div className="text-[11px] text-white/40 mt-1">499 + 299 + 599, bez bonusu</div>
           </div>
 
           <div className="bg-gradient-to-br from-gold to-amber-300 text-navy rounded-xl p-4 shadow-[0_15px_40px_rgba(255,186,8,0.4)] sm:col-span-1 savings-pulse">
@@ -59,7 +59,7 @@ export function OrderBumpBar({ isBundle, onToggle, loading }: Props) {
             <div className="text-[10px] uppercase tracking-wider text-gold font-extrabold mb-1">
               Tvoje úspora
             </div>
-            <div className="text-2xl font-extrabold text-gold">198 Kč</div>
+            <div className="text-2xl font-extrabold text-gold">398 Kč</div>
             <div className="text-[11px] text-white/60 mt-1">+ bonus, který nelze koupit zvlášť</div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export function OrderBumpBar({ isBundle, onToggle, loading }: Props) {
             disabled={loading}
             className="w-full bg-gold text-navy font-extrabold text-base md:text-lg py-4 rounded-xl hover:bg-gold/90 transition shadow-[0_15px_40px_rgba(255,186,8,0.45)] disabled:opacity-50 inline-flex items-center justify-center gap-2"
           >
-            {loading ? "Aktualizuji…" : "Přidat balíček a ušetřit 198 Kč"}
+            {loading ? "Aktualizuji…" : "Přidat balíček a ušetřit 398 Kč"}
             <span>→</span>
           </button>
         )}

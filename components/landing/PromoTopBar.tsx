@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const ITEMS = [
-  "Akční cena balíčku 999 Kč místo 1 197 Kč",
+  "Akční cena balíčku 999 Kč místo 1 397 Kč",
   'BONUS „Jak sehnat prvního klienta" zdarma uvnitř balíčku',
   "Doručení e-mailem do několika minut",
   "Platba kartou · zabezpečeno přes Stripe",

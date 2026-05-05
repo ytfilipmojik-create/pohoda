@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { EbookMockup } from "@/components/svg/EbookMockup";
 import { Stars } from "@/components/svg/Stars";
+import { getProduct, type ProductSlug } from "@/lib/products";
 
 type Props = {
   number: string;
-  slug: string;
+  slug: ProductSlug;
   title: string;
   subtitle: string;
   outcomes: string[];
@@ -21,6 +22,7 @@ export function ProductDetail({
   review,
   faq,
 }: Props) {
+  const price = getProduct(slug)?.priceKc ?? 0;
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-cream to-white py-16 lg:py-24">
@@ -54,7 +56,7 @@ export function ProductDetail({
                 href={`/checkout?product=${slug}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-navy text-white px-7 py-4 font-semibold hover:bg-navy/90 transition shadow-[0_10px_30px_rgba(26,31,58,0.25)]"
               >
-                Koupit za 399 Kč <span className="text-gold">→</span>
+                Koupit za {price} Kč <span className="text-gold">→</span>
               </Link>
               <Link
                 href="/checkout?product=bundle"
@@ -118,7 +120,7 @@ export function ProductDetail({
             <div className="text-xs uppercase tracking-wider text-ink/60 font-bold mb-2">
               Tento e-book
             </div>
-            <div className="text-4xl font-extrabold text-navy mb-2">399 Kč</div>
+            <div className="text-4xl font-extrabold text-navy mb-2">{price} Kč</div>
             <ul className="space-y-2 text-sm text-ink/70 mt-4 mb-6">
               <li className="flex gap-2">
                 <span className="text-gold">✓</span> PDF, ~30 stran
@@ -134,7 +136,7 @@ export function ProductDetail({
               href={`/checkout?product=${slug}`}
               className="block text-center rounded-xl bg-white border border-navy text-navy py-3.5 font-semibold hover:bg-navy hover:text-white transition"
             >
-              Koupit za 399 Kč
+              Koupit za {price} Kč
             </Link>
           </div>
 
@@ -147,7 +149,7 @@ export function ProductDetail({
             </div>
             <div className="flex items-baseline gap-2 mb-2">
               <div className="text-4xl font-extrabold text-gold">999 Kč</div>
-              <div className="text-sm text-white/40 line-through">1 197 Kč</div>
+              <div className="text-sm text-white/40 line-through">1 397 Kč</div>
             </div>
             <ul className="space-y-2 text-sm text-white/85 mt-4 mb-6">
               <li className="flex gap-2">
@@ -157,7 +159,7 @@ export function ProductDetail({
                 <span className="text-gold">✓</span> Bonus „Jak sehnat prvního klienta"
               </li>
               <li className="flex gap-2">
-                <span className="text-gold">✓</span> Úspora 198 Kč
+                <span className="text-gold">✓</span> Úspora 398 Kč
               </li>
             </ul>
             <Link

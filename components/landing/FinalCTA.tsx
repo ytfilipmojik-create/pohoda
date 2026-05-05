@@ -17,7 +17,7 @@ export function FinalCTA() {
           <span className="text-gold">Vyber tu svoji.</span>
         </h2>
         <p className="mt-6 text-lg text-white/70 max-w-xl mx-auto">
-          Můžeš si vzít jeden e-book za 399 Kč, nebo všechny tři + bonus za 999 Kč. Žádný
+          Můžeš si vzít jeden e-book od 299 Kč, nebo všechny tři + bonus za 999 Kč. Žádný
           spěch, žádný hype.
         </p>
         <Link

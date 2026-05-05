@@ -17,7 +17,7 @@ export function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/40 text-navy text-[11px] font-extrabold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-5">
             <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
-            Akce: balíček 999 Kč místo 1 197 Kč
+            Akce: balíček 999 Kč místo 1 397 Kč
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy leading-[1.05]">
             Pohoda z domova.
@@ -102,7 +102,7 @@ export function Hero() {
             <Sticker color="gold" size="md" rotate={12} wobble>
               Ušetříš
               <br />
-              198 Kč
+              398 Kč
             </Sticker>
           </div>
           <div className="absolute -bottom-4 -left-2 z-10">

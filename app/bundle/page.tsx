@@ -16,7 +16,7 @@ export default function Bundle() {
           <span className="text-gold">za 999 Kč</span>
         </h1>
         <p className="mt-6 text-lg text-ink/75 max-w-2xl mx-auto">
-          Místo 1 197 Kč za jednotlivé e-booky dostaneš všechny tři + exkluzivní bonusový e-book,
+          Místo 1 397 Kč za jednotlivé e-booky dostaneš všechny tři + exkluzivní bonusový e-book,
           který není dostupný samostatně.
         </p>
         <Link

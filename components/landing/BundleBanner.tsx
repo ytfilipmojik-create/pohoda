@@ -18,7 +18,7 @@ export function BundleBanner() {
             <Sticker color="gold" size="md" rotate={14} wobble>
               Úspora
               <br />
-              198 Kč
+              398 Kč
             </Sticker>
           </div>
 
@@ -60,7 +60,7 @@ export function BundleBanner() {
             </div>
 
             <div className="text-center md:text-right md:border-l md:border-white/10 md:pl-8">
-              <div className="text-sm text-white/40 line-through font-semibold">1 197 Kč</div>
+              <div className="text-sm text-white/40 line-through font-semibold">1 397 Kč</div>
               <div className="text-5xl md:text-6xl font-extrabold text-gold glow-gold leading-none my-1">
                 999 Kč
               </div>

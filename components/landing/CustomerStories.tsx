@@ -13,7 +13,7 @@ const FEATURED = {
     "Před rokem jsem chtěl mít vlastní web pro tesařství — zachytit víc soukromníků, kteří hledají řemeslníka přes Google. Obvolal jsem několik webdesignérů, ale ceny se pohybovaly mezi 30 a 40 tisíci. Tolik peněz za něco, čemu nerozumím, jsem investovat nechtěl.",
   ],
   rest: [
-    "Kolega mi pak ukázal e-book AI weby pro malé firmy. Stál 399 Kč. Říkal jsem si, že za jednu výplatu zkusím něco postavit sám. Vyšlo to — za dva víkendy jsem měl funkční web přesně podle své představy.",
+    "Kolega mi pak ukázal e-book AI weby pro malé firmy. Stál pár stovek. Říkal jsem si, že za jednu výplatu zkusím něco postavit sám. Vyšlo to — za dva víkendy jsem měl funkční web přesně podle své představy.",
     "Tady to začalo být zajímavé. Na stavbách denně potkávám další řemeslníky — střechaře, zedníky, elektrikáře, instalatéry. Většina z nich nemá web vůbec, nebo má něco z roku 2015. Zeptal jsem se jednoho: „Kdybych ti udělal stránky podle tvojí branže, vzal bys to?\" Vzal. Pak druhý. Třetí.",
     "Dneska po práci sednu k notebooku a pracuju na zakázkách. „Tesař, který staví weby\" funguje líp, než kdybych byl jen další freelance designér z LinkedInu — kolegové vědí, že rozumím jejich byznysu. Ceny dělám férové, nepřeháním je jako agentury.",
     "Mám druhý zdroj příjmu, který v některých měsících přesahuje výplatu z hlavní práce. A pořád chodím na stavbu, protože mě to baví. Pohoda.",

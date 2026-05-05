@@ -2,12 +2,18 @@ import { describe, it, expect } from "vitest";
 import { calculateCart, expandToFulfillment } from "@/lib/pricing";
 
 describe("calculateCart", () => {
-  it("single product = 399 Kč", () => {
-    expect(calculateCart(["ai-grafika"]).totalKc).toBe(399);
+  it("single product (ai-grafika) = 299 Kč", () => {
+    expect(calculateCart(["ai-grafika"]).totalKc).toBe(299);
   });
 
-  it("two singles = 798 Kč (no auto-bundle)", () => {
-    expect(calculateCart(["ai-grafika", "ai-weby"]).totalKc).toBe(798);
+  it("two singles ai-grafika + ai-weby = 898 Kč (no auto-bundle)", () => {
+    expect(calculateCart(["ai-grafika", "ai-weby"]).totalKc).toBe(898);
+  });
+
+  it("all 3 singles = 1 397 Kč", () => {
+    expect(
+      calculateCart(["ai-ugc-reklamy", "ai-grafika", "ai-weby"]).totalKc,
+    ).toBe(1397);
   });
 
   it("bundle = 999 Kč", () => {

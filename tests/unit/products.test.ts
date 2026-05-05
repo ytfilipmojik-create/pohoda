@@ -2,10 +2,13 @@ import { describe, it, expect } from "vitest";
 import { getProduct, getAllProducts, BUNDLE_SLUG, BONUS_SLUG } from "@/lib/products";
 
 describe("products catalog", () => {
-  it("has 3 paid e-books at 399 Kč", () => {
+  it("has 3 paid e-books with individual prices", () => {
     const paid = getAllProducts().filter((p) => !p.isBundle && !p.isBonusOnly);
     expect(paid).toHaveLength(3);
-    paid.forEach((p) => expect(p.priceKc).toBe(399));
+    const bySlug = Object.fromEntries(paid.map((p) => [p.slug, p.priceKc]));
+    expect(bySlug["ai-ugc-reklamy"]).toBe(499);
+    expect(bySlug["ai-grafika"]).toBe(299);
+    expect(bySlug["ai-weby"]).toBe(599);
   });
 
   it("bundle is 999 Kč and includes 3 e-books + bonus", () => {
