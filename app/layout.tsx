@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { PromoTopBar } from "@/components/landing/PromoTopBar";
 import { StickyHeader } from "@/components/shared/StickyHeader";
 import { Footer } from "@/components/shared/Footer";
 import { GA4 } from "@/components/tracking/GA4";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-cream text-ink font-sans antialiased min-h-screen flex flex-col">
         <GA4 />
         <MetaPixel />
+        <PromoTopBar />
         <StickyHeader />
         <main className="flex-1">{children}</main>
         <Footer />

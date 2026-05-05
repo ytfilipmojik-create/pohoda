@@ -98,10 +98,10 @@ export function AiToolsReveal() {
           <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
             <div>
               <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
-                + dalších 5 nástrojů
+                + dalších 5 nástrojů zdarma
               </div>
               <h3 className="text-2xl md:text-3xl font-extrabold leading-tight mb-3">
-                Odemkni celý seznam.
+                Odemkni <span className="text-gold glow-gold">celý seznam</span>.
               </h3>
               <p className="text-white/70 mb-6 max-w-md">
                 Konkrétní ceny, alternativy, kde co dává smysl použít. Žádný spam, kdykoli

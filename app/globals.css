@@ -32,3 +32,39 @@
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 186, 8, 0.55); }
+  70%  { box-shadow: 0 0 0 18px rgba(255, 186, 8, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 186, 8, 0); }
+}
+.pulse-glow {
+  animation: pulseGlow 2.2s infinite;
+}
+
+.glow-gold {
+  text-shadow:
+    0 0 14px rgba(255, 186, 8, 0.55),
+    0 0 28px rgba(255, 186, 8, 0.3);
+}
+.glow-white {
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.5),
+    0 0 28px rgba(255, 255, 255, 0.25);
+}
+
+@keyframes stickerWobble {
+  0%, 100% { transform: rotate(var(--rot, -8deg)) scale(1); }
+  50%      { transform: rotate(calc(var(--rot, -8deg) - 2deg)) scale(1.04); }
+}
+.sticker-wobble {
+  animation: stickerWobble 2.6s ease-in-out infinite;
+}
+
+@keyframes promoScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.promo-scroll {
+  animation: promoScroll 35s linear infinite;
+}

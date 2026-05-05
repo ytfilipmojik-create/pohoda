@@ -7,18 +7,24 @@ const PRODUCTS = [
     number: "01",
     title: "AI UGC reklamy",
     pitch: "Točit krátká reklamní videa pro značky a inkasovat za kus.",
+    badge: "Bestseller",
+    badgeColor: "bg-gold text-navy",
   },
   {
     slug: "ai-grafika",
     number: "02",
     title: "AI grafika a vizuály",
     pitch: "Logo, sociální sítě, bannery — bez Photoshopu, jen s AI a Canvou.",
+    badge: "Pro začátečníky",
+    badgeColor: "bg-navy text-gold",
   },
   {
     slug: "ai-weby",
     number: "03",
     title: "AI weby pro malé firmy",
     pitch: "Postavit za večer profesionální web pro lokální firmu.",
+    badge: "Vyšší marže",
+    badgeColor: "bg-cream text-navy border border-navy/20",
   },
 ];
 
@@ -34,9 +40,12 @@ export function WhatYouGet() {
             Tři e-booky, každý jedna konkrétní cesta.
           </h2>
           <p className="mt-5 text-lg text-ink/70 leading-relaxed">
-            Krátké, praktické, přímo k věci. Žádná voda, žádné motivační kapitoly.{" "}
-            <span className="font-semibold text-navy">Cca 30 stran</span> na e-book, doručení
-            e-mailem do několika minut.
+            Cca <span className="font-semibold text-navy">30 stran</span> na e-book, doručení
+            e-mailem do několika minut. Nebo si vezmi rovnou{" "}
+            <a href="#balicek" className="text-navy font-bold underline decoration-gold decoration-2 underline-offset-4">
+              balíček všech 3 + bonus zdarma
+            </a>
+            .
           </p>
         </div>
 
@@ -44,8 +53,14 @@ export function WhatYouGet() {
           {PRODUCTS.map((p) => (
             <article
               key={p.slug}
-              className="bg-cream rounded-2xl p-6 border border-ink/5 flex flex-col hover:shadow-[0_20px_50px_rgba(26,31,58,0.1)] transition-shadow"
+              className="relative bg-cream rounded-2xl p-6 border border-ink/5 flex flex-col hover:shadow-[0_20px_50px_rgba(26,31,58,0.12)] transition-shadow"
             >
+              <div
+                className={`absolute -top-3 left-6 text-[10px] font-extrabold uppercase tracking-[0.15em] px-3 py-1 rounded-full shadow-md ${p.badgeColor}`}
+              >
+                {p.badge}
+              </div>
+
               <div className="aspect-[3/4] mb-6 px-2">
                 <EbookMockup number={p.number} title={p.title} rotate={0} />
               </div>
@@ -55,12 +70,12 @@ export function WhatYouGet() {
               <h3 className="text-xl font-extrabold text-navy mb-2 leading-tight">{p.title}</h3>
               <p className="text-ink/70 text-sm leading-relaxed mb-4 flex-1">{p.pitch}</p>
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-3xl font-extrabold text-navy">399 Kč</span>
+                <span className="text-3xl font-extrabold text-navy glow-gold">399 Kč</span>
                 <span className="text-xs text-ink/50">/ PDF</span>
               </div>
               <Link
                 href={`/checkout?product=${p.slug}`}
-                className="block text-center rounded-xl bg-navy text-white py-3.5 font-bold hover:bg-navy/90 transition shadow-sm"
+                className="block text-center rounded-xl bg-navy text-white py-3.5 font-bold hover:bg-navy/90 transition shadow-md"
               >
                 Koupit za 399 Kč
               </Link>
