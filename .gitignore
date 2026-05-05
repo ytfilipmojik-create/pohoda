@@ -9,3 +9,4 @@ node_modules/
 .superpowers/brainstorm/
 playwright-report/
 test-results/
+tsconfig.tsbuildinfo
